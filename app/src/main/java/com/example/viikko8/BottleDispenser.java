@@ -9,6 +9,7 @@ public class BottleDispenser {
     private int bottles;
     private double money;
     ArrayList<Bottle> bottle_array = new ArrayList<Bottle>();
+    private Bottle previousBottle;
 
     private static BottleDispenser automaatti = new BottleDispenser();
 
@@ -59,6 +60,7 @@ public class BottleDispenser {
             return 1;
         }
         money -= temp_bottle.getPrice();
+        previousBottle = temp_bottle;
         bottle_array.remove(pullonro);
         bottles -= 1;
         return 2;
@@ -73,4 +75,5 @@ public class BottleDispenser {
     public double getMoney() {
         return money;
     }
+    public Bottle getLatest(){return previousBottle;}
 }
